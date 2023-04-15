@@ -82,7 +82,7 @@ macro_rules! classes {
 
 #[cfg(test)]
 mod tests {
-    use crate::classes::Classes;
+    use crate::core::*;
 
     macro_rules! tests {
         [$([$test_name:ident, $actual:expr, $expected:literal]),+$(,)?] => {

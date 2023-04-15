@@ -1,5 +1,5 @@
-pub mod classes;
+pub mod core;
 
 pub mod prelude {
-    pub use crate::classes::*;
+    pub use crate::core::*;
 }

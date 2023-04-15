@@ -67,7 +67,7 @@ impl From<Option<&str>> for Class {
 macro_rules! classes {
     ($($token:expr$(=> $bool:expr)?),*) => [
         {
-            let mut classes = Classes::new();
+            let mut classes = $crate::core::Classes::new();
 
             $(
                 if true $(&& $bool)? {
@@ -82,8 +82,6 @@ macro_rules! classes {
 
 #[cfg(test)]
 mod tests {
-    use crate::core::*;
-
     macro_rules! tests {
         [$([$test_name:ident, $actual:expr, $expected:literal]),+$(,)?] => {
             $(

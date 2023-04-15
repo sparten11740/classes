@@ -33,29 +33,33 @@ impl Class {
     pub fn get(&self) -> Option<String> {
         self.0.clone()
     }
+
+    pub fn new(value: Option<String>) -> Self {
+        Self(value.and_then(|it| if it.is_empty() { None } else { Some(it) }))
+    }
 }
 
 impl From<String> for Class {
     fn from(value: String) -> Self {
-        Class(Some(value))
+        Class::new(Some(value))
     }
 }
 
 impl From<&str> for Class {
     fn from(value: &str) -> Self {
-        Class(Some(value.into()))
+        Class::new(Some(value.into()))
     }
 }
 
 impl From<Option<String>> for Class {
     fn from(value: Option<String>) -> Self {
-        Class(value)
+        Class::new(value)
     }
 }
 
 impl From<Option<&str>> for Class {
     fn from(value: Option<&str>) -> Self {
-        Class(value.map(|it| it.into()))
+        Class::new(value.map(|it| it.into()))
     }
 }
 
@@ -99,5 +103,8 @@ mod tests {
         [should_accept_expressions, classes!["concatenated".to_string() + "-class", Some("batman").map(|_| "bruce-wayne")], "concatenated-class bruce-wayne"],
         [should_apply_classes_evaluating_to_true, classes!["button" => true, "button--disabled" => DISABLED, "button--active" => false, "all-the-buttons" => 42 > 3 ], "button button--disabled all-the-buttons"],
         [should_accept_various_types_at_the_same_time, classes!["button" => true, Some("button--disabled"), None::<String>, "button--primary"], "button button--disabled button--primary"],
+        [should_remove_empty_str, classes!["button", "", "button--active"], "button button--active"],
+        [should_remove_empty_string, classes!["button", "".to_string(), "button--active"], "button button--active"],
+        [should_remove_empty_strings_passed_as_options, classes!["button", Some(""), "button--active"], "button button--active"],
     ];
 }

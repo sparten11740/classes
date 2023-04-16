@@ -7,7 +7,7 @@ keywords = ["web", "DOM", "classnames", "macro"]
 readme = "README.md"
 repository = "https://github.com/sparten11740/classes"
 description = "Dependency-free macro that simplifies the process of building class strings for DOM elements"
-
+exclude = [".github", ".releaserc.json", ".gitignore"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]

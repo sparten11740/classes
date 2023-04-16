@@ -30,7 +30,7 @@ jobs:
   release:
     name: Release
     needs: [test, lint]
-#    if: github.event_name == 'push'
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -40,7 +40,6 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
       - uses: cycjimmy/semantic-release-action@v3
         with:
-          dry_run: true
           extra_plugins: |
             @semantic-release/changelog@^6.0.3
             @semantic-release/git@^10.0.1

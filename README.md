@@ -1,4 +1,4 @@
-[![Checks](https://github.com/sparten11740/classes/actions/workflows/checks.yml/badge.svg)](https://github.com/sparten11740/classes/actions/workflows/checks.yml)
+[![CI](https://github.com/sparten11740/classes/actions/workflows/ci.yml/badge.svg)](https://github.com/sparten11740/classes/actions/workflows/ci.yml)
 # classes
 
 `classes` is a lightweight and dependency-free macro that simplifies the process of building class strings for DOM

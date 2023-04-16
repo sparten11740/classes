@@ -47,4 +47,4 @@ jobs:
             @semantic-release-cargo/semantic-release-cargo@^2.1.67
         env:
           GITHUB_TOKEN: ${{ secrets.GH_AUTOMATION_PAT }}
-          CARGO_REGISTRY_TOKEN: ${{ secrets.CRATES_TOKEN }}
+          CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
